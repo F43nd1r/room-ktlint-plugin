@@ -4,6 +4,7 @@ interface Dao {
         SELECT
             *
         FROM
+        
             example
     """)
     fun query()
