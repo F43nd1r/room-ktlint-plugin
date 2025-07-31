@@ -33,7 +33,7 @@ class RoomAnnotationSqlFormattingRule : Rule(
 
     override fun beforeFirstNode(editorConfig: EditorConfig) {
         indentConfig = IndentConfig(editorConfig[INDENT_STYLE_PROPERTY], editorConfig[INDENT_SIZE_PROPERTY])
-        sqlConfig = FormatConfig.builder().indent(indentConfig.indent).uppercase(true).build()
+        sqlConfig = FormatConfig.builder().indent(indentConfig.indent).uppercase(true).maxColumnLength(100).build()
 
     }
 
