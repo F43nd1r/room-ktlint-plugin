@@ -1,8 +1,8 @@
 [versions]
 dokka = "2.0.0"
 jgitver = "0.10.0-rc03"
-junit-jupiter = "5.13.4"
-junit-platform-launcher = "1.13.4"
+junit-jupiter = "5.14.1"
+junit-platform-launcher = "1.14.1"
 kotlin = "2.2.21"
 ktlint = "1.7.1"
 nexusPublish = "2.0.0"
