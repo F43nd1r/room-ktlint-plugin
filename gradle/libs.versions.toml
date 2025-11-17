@@ -6,7 +6,7 @@ junit-platform-launcher = "1.13.4"
 kotlin = "2.2.21"
 ktlint = "1.7.1"
 nexusPublish = "2.0.0"
-org-jmailen-kotlinter = "5.2.0"
+org-jmailen-kotlinter = "5.3.0"
 slf4j = "2.0.17"
 sqlformatter = "2.0.5"
 
