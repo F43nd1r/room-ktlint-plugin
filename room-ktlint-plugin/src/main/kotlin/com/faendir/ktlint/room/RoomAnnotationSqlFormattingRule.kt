@@ -43,7 +43,7 @@ class RoomAnnotationSqlFormattingRule : Rule(
     ) {
         if (node.elementType != ElementType.ANNOTATION_ENTRY) return
         val annotationName = node.findChildByType(ElementType.CONSTRUCTOR_CALLEE)?.findChildByType(ElementType.TYPE_REFERENCE)?.text
-        if (annotationName != "Query") return
+        if (annotationName !in annotationNames) return
         val stringNode = node.findChildByType(ElementType.VALUE_ARGUMENT_LIST)?.findChildByType(ElementType.VALUE_ARGUMENT)?.findChildByType(ElementType.STRING_TEMPLATE) ?: return
         val text = stringNode.text
         val formattedText = formatSqlString(text, node)
@@ -58,5 +58,9 @@ class RoomAnnotationSqlFormattingRule : Rule(
         val cleanedText = text.removeSurrounding("\"\"\"").removeSurrounding("\"").trim()
         val formattedSql = formatter.format(cleanedText, sqlConfig)
         return "\"\"\"\n$formattedSql\n\"\"\"".replace("\n", indentConfig.childIndentOf(node))
+    }
+
+    companion object {
+        private val annotationNames = listOf("Query", "DatabaseView")
     }
 }
