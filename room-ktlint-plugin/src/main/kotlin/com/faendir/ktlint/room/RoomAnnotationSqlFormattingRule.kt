@@ -54,6 +54,13 @@ class RoomAnnotationSqlFormattingRule : Rule(
         }
     }
 
+    override fun afterVisitChildNodes(
+        node: ASTNode,
+        emit: (offset: Int, errorMessage: String, canBeAutoCorrected: Boolean) -> AutocorrectDecision
+    ) {
+        // Implemented for compatibility
+    }
+
     private fun formatSqlString(text: String, node: ASTNode): String {
         val cleanedText = text.removeSurrounding("\"\"\"").removeSurrounding("\"").trim()
         val formattedSql = formatter.format(cleanedText, sqlConfig)
